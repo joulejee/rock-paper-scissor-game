@@ -1,6 +1,9 @@
-
 // 1. Make the computer chose it weapon (rock, paper, scissor)
 // 2. Ask the player his/her weapon of choice (rock paper scissor)
+
+let playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSOR?")
+
+
 // 3. Actual Game
         //PLAYER PICKS ROCK
         // a. If Player = Rock, CPU = Rock; TIE
