@@ -9,12 +9,12 @@ function getComputerChoice () {
 
 let computerSelection = getComputerChoice();
 
-console.log(computerSelection)
+console.log(`Computer selected: ${computerSelection}`);
 
 // 2. Ask the player his/her weapon of choice (rock paper scissor)
 
 let playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase();
-console.log(playerSelection);
+console.log(`You selected: ${playerSelection}`);
 
 // 3. Actual Game
 
@@ -24,25 +24,26 @@ function playRound (playerSelection, computerSelection) {
                 switch (computerSelection) {
                         // a. If Player = Rock, CPU = Rock; TIE
                         case ("ROCK"):
-                        alert("TIE GAME! You both chose ROCK.");
+                        return "TIE GAME! You both chose ROCK.";
                         break;
 
                         // b. If Player = Rock, CPU = Paper; You Lose
                         case ("PAPER"):
-                        alert("You LOSE! Computer chose PAPER. Paper beats Rock!");
+                        return "You LOSE! Computer chose PAPER. Paper beats Rock!";
                         break;
 
                          // c. If Player = Rock, CPU = Scissor, You WiN
                         case ("SCISSORS"):
-                        alert("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
+                        return "You WIN! Computer chose SCISSORS. Rock beats Scissors!";
                         break;
-                }                
+                }
+                                
         } else {
-                console.log('Stop!');
+                console.log('Switch Statement not working');
         }
         }
         
-        
+playRound();    
        
         //PLAYER PICKS PAPER
         // a. If Player = Paper, CPU = Rock; You WIN
