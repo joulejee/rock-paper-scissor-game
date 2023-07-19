@@ -24,17 +24,17 @@ function playRound (playerSelection, computerSelection) {
                 switch (computerSelection) {
                         // a. If Player = Rock, CPU = Rock; TIE
                         case ("ROCK"):
-                        return "TIE GAME! You both chose ROCK.";
+                        alert("TIE GAME! You both chose ROCK.");
                         break;
 
                         // b. If Player = Rock, CPU = Paper; You Lose
                         case ("PAPER"):
-                        return "You LOSE! Computer chose PAPER. Paper beats Rock!";
+                        alert("You LOSE! Computer chose PAPER. Paper beats Rock!");
                         break;
 
                          // c. If Player = Rock, CPU = Scissor, You WiN
                         case ("SCISSORS"):
-                        return "You WIN! Computer chose SCISSORS. Rock beats Scissors!";
+                        alert("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
                         break;
                 }                
         } else {
