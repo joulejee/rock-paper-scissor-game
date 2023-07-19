@@ -36,15 +36,14 @@ function playRound (playerSelection, computerSelection) {
                         case ("SCISSORS"):
                         return "You WIN! Computer chose SCISSORS. Rock beats Scissors!";
                         break;
-                }
-                                
+                }    
         } else {
                 console.log('Switch Statement not working');
         }
         }
-        
-playRound();    
-       
+      
+playRound();
+
         //PLAYER PICKS PAPER
         // a. If Player = Paper, CPU = Rock; You WIN
         // b. If Player = Paper, CPU = Paper; TIE
