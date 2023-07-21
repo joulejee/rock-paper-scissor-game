@@ -11,6 +11,7 @@ let computerSelection = getComputerChoice();
 
 console.log(`Computer selected: ${computerSelection}`);
 
+
 // 2. Ask the player his/her weapon of choice (rock paper scissor)
 
 let playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase();
@@ -18,29 +19,16 @@ console.log(`You selected: ${playerSelection}`);
 
 // 3. Actual Game
 
-function playRound (playerSelection, computerSelection) {
-       //PLAYER PICKS ROCK
-        if (playerSelection == "ROCK") {
-                switch (computerSelection) {
-                        // a. If Player = Rock, CPU = Rock; TIE
-                        case ("ROCK"):
-                        return "TIE GAME! You both chose ROCK.";
-                        break;
-
-                        // b. If Player = Rock, CPU = Paper; You Lose
-                        case ("PAPER"):
-                        return "You LOSE! Computer chose PAPER. Paper beats Rock!";
-                        break;
-
-                         // c. If Player = Rock, CPU = Scissor, You WiN
-                        case ("SCISSORS"):
-                        return "You WIN! Computer chose SCISSORS. Rock beats Scissors!";
-                        break;
-                }    
+function playRound (computerSelection, playerSelection) {
+        if (playerSelection == computerSelection) {
+                console.log('Tie');
+                
+        } else if (playerSelection == "ROCK" && computerSelection == "SCISSOR") {
+                return "You Win";
         } else {
-                console.log('Switch Statement not working');
+        console.log('Switch Statement not working');
         }
-        }
+}
       
 playRound();
 
@@ -55,3 +43,19 @@ playRound();
         
 //4. Play the game with Best-of-Five series. Show the Game #, Score for each round.
 //5. First player to score 3 wins the GAME.
+
+              // switch (wipon) {
+                //         // a. If Player = Rock, CPU = Rock; TIE
+                //         case ("ROCK"):
+                //         return "TIE GAME! You both chose ROCK.";
+                //         break;
+
+                //         // b. If Player = Rock, CPU = Paper; You Lose
+                //         case ("PAPER"):
+                //         return "You LOSE! Computer chose PAPER. Paper beats Rock!";
+                //         break;
+
+                //          // c. If Player = Rock, CPU = Scissor, You WiN
+                //         case ("SCISSORS"):
+                //         return "You WIN! Computer chose SCISSORS. Rock beats Scissors!";
+                //         break;
