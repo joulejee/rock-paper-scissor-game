@@ -83,7 +83,7 @@ function playRound (humanPick, cpuPick) {
         }
 }
       
-playRound(playerSelection, computerSelection);
+// playRound(playerSelection, computerSelection);
         
 //4. Play the game with Best-of-Five series. Show the Game #, Score for each round.
 
@@ -97,11 +97,23 @@ function game() {
         let scoreBoard = `SCOREBOARD = YOU: ${humanScore} | COMPUTER: ${computerScore}`;
         
         //b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
-        // - if function returns WIN, +1 to the PLAYER.
-                // - if function returns TIE, do nothing.
+                // - if function returns WIN, +1 to the PLAYER.
+        if (playRound() == 'WIN') {
+                ++humanScore;
+                console.log(scoreBoard);
                 // - if function returns LOSE, +1 to the COMPUTER.
+        } else if (playRound() == 'LOSE') {
+                ++computerScore;
+                console.log(scoreBoard);
+                // - if function returns TIE, do nothing.
+        } else {
+                console.log(scoreBoard);
+        }
+        
         //c. Repeat playRound() five times.
 }
+
+game();
 //5. First player to score 3 wins the GAME.
 
               
