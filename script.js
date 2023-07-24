@@ -87,6 +87,21 @@ playRound(playerSelection, computerSelection);
         
 //4. Play the game with Best-of-Five series. Show the Game #, Score for each round.
 
+function game() {
+        //a. One round is equivalent to one playRound().
+        playRound(playerSelection, computerSelection)
+        
+        //b. Create a scoreboard for player and computer.
+        let 
+        
+        //b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
+        // - if function returns WIN, +1 to the PLAYER.
+        if (playRound() == 'WIN')
+                // - if function returns TIE, do nothing.
+                // - if function returns LOSE, +1 to the COMPUTER.
+        //c. Repeat playRound() five times.
+
+}
 
 //5. First player to score 3 wins the GAME.
 
