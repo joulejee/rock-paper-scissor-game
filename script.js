@@ -26,19 +26,16 @@ function playRound (humanPick, cpuPick) {
                         case ("ROCK"):
                         console.log("Tie game! You both choose ROCK");
                         return "TIE";
-                        break;
 
                         // b. If Player = Rock, CPU = Paper; You Lose
                         case ("PAPER"):
                         console.log("You LOSE! Computer chose PAPER. Paper beats Rock!");
                         return "LOSE";
-                        break;
 
                          // c. If Player = Rock, CPU = Scissor, You WiN
                         case ("SCISSORS"):
                         console.log("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
                         return "WIN";
-                        break;
                 }
         } else if (humanPick == "PAPER") {
                 switch (cpuPick) {
@@ -46,19 +43,16 @@ function playRound (humanPick, cpuPick) {
                         case ("ROCK"):
                         console.log("You WIN! Computer chose ROCK. Paper beats Rock!");
                         return "WIN";
-                        break;
 
                         // b. If Player = Paper, CPU = Paper; TIE
                         case ("PAPER"):
                         console.log("Tie game! You both choose PAPER");
                         return "TIE";
-                        break;
 
                         // c. If Player = Paper, CPU = Scissor; You LOSE
                         case ("SCISSORS"):
                         console.log("You LOSE! Computer chose SCISSORS. Scissors beat Paper!");
                         return "LOSE";
-                        break;
                 }
         } else if (humanPick == "SCISSORS") {
                 switch (cpuPick) {
@@ -66,19 +60,16 @@ function playRound (humanPick, cpuPick) {
                         case ("ROCK"):
                         console.log("You LOSE! Computer chose ROCK. Rock beats Scissors!");
                         return "LOSE";
-                        break;
 
                         // b. If Player = Scissor, CPU = Paper; You Win
                         case ("PAPER"):
                         console.log("You WIN! Computer chose Paper. Scissors beat Paper!");
                         return "WIN";
-                        break;
 
                         // c. If Player = Scissor, CPU = Scissor; TIE
                         case ("SCISSORS"):
                         console.log("Tie game! You both choose PAPER");
                         return "TIE";
-                        break;
                 }
         }
 }
@@ -94,24 +85,32 @@ function game() {
         //b. Create a scoreboard for player and computer.
         let humanScore = 0;
         let computerScore = 0;
+       
         let scoreBoard = `SCOREBOARD = YOU: ${humanScore} | COMPUTER: ${computerScore}`;
         
         //b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
                 // - if function returns WIN, +1 to the PLAYER.
-        if (playRound() == 'WIN') {
+        if (playRound() == "WIN") {
+                // ++humanScore;
                 ++humanScore;
                 console.log(scoreBoard);
                 // - if function returns LOSE, +1 to the COMPUTER.
-        } else if (playRound() == 'LOSE') {
+        } else if (playRound() == "LOSE") {
                 ++computerScore;
                 console.log(scoreBoard);
                 // - if function returns TIE, do nothing.
         } else {
+                ++humanScore;
+                ++computerScore;
+                console.log('not working');
                 console.log(scoreBoard);
+                // console.log(scoreBoard);
+                // console.log('NOT WORKING');
         }
+     
+}
         
         //c. Repeat playRound() five times.
-}
 
 game();
 //5. First player to score 3 wins the GAME.
