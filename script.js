@@ -1,67 +1,4 @@
-// 1. Make the computer chose it weapon (rock, paper, scissor)
-
-function getComputerChoice () {
-        const weaponArray = ["ROCK", "PAPER", "SCISSORS"];
-                let randomIndex = Math.floor(Math.random() * weaponArray.length);
-                let randomWeapon = weaponArray[randomIndex];
-        return randomWeapon;
-}
-
-const computerSelection = getComputerChoice();
-
-console.log(`Computer selected: ${computerSelection}`);
-
-
-// 2. Ask the player his/her weapon of choice (rock paper scissor)
-
-const playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase();
-console.log(`You selected: ${playerSelection}`);
-
-// 3. Actual Game
-
-// function playRound (humanPick, cpuPick) {
-//         // a. If Player = Paper, CPU = Rock; You WIN
-//         if (humanPick === 'ROCK' && cpuPick === 'ROCK') {
-//             console.log('Tie game! You both choose ROCK');
-//             return 'TIE';
-//          // b. If Player = Rock, CPU = Paper; You Lose
-//         } else if (humanPick === 'ROCK' && cpuPick === 'PAPER') {
-//             console.log("You LOSE! Computer chose PAPER. Paper beats Rock!");
-//             return 'LOSE';
-//          // c. If Player = Rock, CPU = Scissor, You WiN
-//         } else if (humanPick === 'ROCK' && cpuPick === 'SCISSORS') {
-//             console.log("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
-//             return 'WIN';
-//          // d. If Player = Paper, CPU = Rock; You WIN 
-//         } else if (humanPick === 'PAPER' && cpuPick === 'ROCK') {
-//             console.log("You WIN! Computer chose ROCK. Paper beats Rock!");
-//             return 'WIN';
-//         // e. If Player = Paper, CPU = Paper; TIE
-//         } else if (humanPick === 'PAPER' && cpuPick === 'PAPER') {
-//             console.log("Tie game! You both choose PAPER");
-//             return 'TIE';
-//         // f. If Player = Paper, CPU = Scissor; You LOSE
-//         } else if (humanPick === 'PAPER' && cpuPick === 'SCISSORS') {
-//             console.log("You LOSE! Computer chose SCISSORS. Scissors beat Paper!");
-//             return 'LOSE';
-//         // g. If Player = Scissor, CPU = Rock; You Lose
-//         } else if (humanPick === 'SCISSORS' && cpuPick === 'ROCK') {
-//             console.log("You LOSE! Computer chose ROCK. Rock beats Scissors!");
-//             return 'LOSE';
-//         // h. If Player = Scissor, CPU = Paper; You Win
-//         } else if (humanPick === 'SCISSORS' && cpuPick === 'PAPER') {
-//             console.log("You WIN! Computer chose Paper. Scissors beat Paper!")
-//             return 'WIN';
-//         // i. If Player = Scissor, CPU = Scissor; TIE
-//         } else if (humanPick === 'SCISSORS' && cpuPick === 'SCISSORS') {
-//             console.log("Tie game! You both choose SCISSORS");
-//             return 'TIE';
-//         } else {
-//             console.log('INVALID INPUT. PLEASE RELOAD');
-//         }
-//}
-
-
+//Algorithm for ROCK-PAPER-SCISSORS
 function playRound (humanPick, cpuPick) {
         if (humanPick == "ROCK") {
                 switch (cpuPick) {
@@ -116,69 +53,64 @@ function playRound (humanPick, cpuPick) {
                 }
         }
 }
-      
-// playRound(playerSelection, computerSelection);
-        
-//4. Play the game with Best-of-Five series. Show the Game #, Score for each round.
-
-// function game() {
-//         //a. One round is equivalent to one playRound().
-//         // playRound(playerSelection, computerSelection)
-        
-//         // //b. Create a scoreboard for player and computer.
-//         // let humanScore = 0;
-//         // let computerScore = 0;
-       
-//         // let scoreBoard = `SCOREBOARD = YOU: ${humanScore} | COMPUTER: ${computerScore}`;
-        
-// //         b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
-// //                 - if function returns WIN, +1 to the PLAYER.
-//         if (playRound(playerSelection, computerSelection) === 'WIN') {
-//                 // ++humanScore;
-//                 console.log(`You WIN! ${playerSelection} beats ${computerSelection}.`);
-//                 // - if function returns LOSE, +1 to the COMPUTER.
-//         } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
-//                 console.log(`You LOSE! ${computerSelection} beats ${playerSelection}.`);
-//                 // - if function returns TIE, do nothing.
-//         } else {
-//                 console.log('not working');
-//                 // console.log(scoreBoard);
-//                 // console.log(scoreBoard);
-//                 // console.log('NOT WORKING');
-//         }
-
-// }
-        
-        //c. Repeat playRound() five times.
-
-// game();
-//5. First player to score 3 wins the GAME.
 
 
 function game() {
+    
+//Make a placeholder for scores
+    let humanScore = 0;
+    let computerScore = 0;
 
-        let humanScore = 0;
-        let computerScore = 0;
+//Insert for loop for a Best-of-Five Series
+    for (let i = 1; i <=5; i++) {
+        function getComputerChoice () { //Make the computer chose its weapon (rock, paper, scissor)
+                const weaponArray = ["ROCK", "PAPER", "SCISSORS"];
+                        let randomIndex = Math.floor(Math.random() * weaponArray.length);
+                        let randomWeapon = weaponArray[randomIndex];
+                return randomWeapon;
+        }
+    
+    const computerSelection = getComputerChoice(); //Assign computer's weapon function in a variable
+    
+    console.log(`ROUND ${i}`); //Console log a line declaring the current round/match
+    console.log(`Computer selected: ${computerSelection}`);
 
-        let i = 1;
+    //Ask the player his/her weapon of choice (rock paper scissors)
+    const playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase(); 
+    console.log(`You selected: ${playerSelection}`);
+    //Make sure that player's choice (spelling/word choice) is correct. Otherwise, make the round invalid.
 
-        for (; i <=5; i++) {
-            if (playRound(playerSelection, computerSelection) === 'WIN') {
-                console.log(`GAME ${i}: You WIN! ${playerSelection} beats ${computerSelection}.`);
-                return ++humanScore;
-            } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
-                console.log(`Game ${i}: You LOSE! ${computerSelection} beats ${playerSelection}.`);
-                return ++computerScore;
-            } else {
-                console.log('not working');
-            }
-        }   
 
-        console.log(`SCOREBOARD: YOU: ${humanScore} | COMPUTER: ${computerScore}`)
+
+        //Invokation of playRound(),     
+    if (playRound(playerSelection, computerSelection) === 'WIN') {
+        console.log(`RESULT: You WIN! ${playerSelection} beats ${computerSelection}.`);
+        ++humanScore; // Add +1 to humanScore;
+        } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
+        console.log(`RESULT: You LOSE! ${computerSelection} beats ${playerSelection}.`);
+        ++computerScore; // Add +1 to computerScore;
+        } else if (playRound(playerSelection, computerSelection) === 'TIE'){
+        console.log(`RESULT: TIE GAME. You both chose ${playerSelection}`); //Tie Game. Do Nothing.
+        } else {
+        console.log('INVALID INPUT. PLEASE RELOAD THE GAME.')
+        }
+//
+        console.log(`SCOREBOARD: YOU: ${humanScore} | COMPUTER: ${computerScore}\n `);
+
+        //SCORING CONDITIONALS (WINNER / LOSER)
+   if (humanScore === 3) {
+                console.log('CONGRATULATIONS! YOU WIN THE GAME');
+                break;
+        } else if (computerScore === 3) {
+                console.log('YOU LOSE. PLEASE TRY AGAIN.');
+                break;
+        } else if (i === 5 && humanScore > computerScore) {
+                console.log('CONGRATULATIONS! YOU WIN THE GAME');
+        } else if (i === 5 && humanScore < computerScore) {
+                console.log('YOU LOSE. PLEASE TRY AGAIN.')
+        }
+
+    }
 }
 
 game();
-
-
-
-              
