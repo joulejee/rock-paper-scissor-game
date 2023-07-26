@@ -121,37 +121,64 @@ function playRound (humanPick, cpuPick) {
         
 //4. Play the game with Best-of-Five series. Show the Game #, Score for each round.
 
-function game() {
-        //a. One round is equivalent to one playRound().
-        // playRound(playerSelection, computerSelection)
+// function game() {
+//         //a. One round is equivalent to one playRound().
+//         // playRound(playerSelection, computerSelection)
         
-        //b. Create a scoreboard for player and computer.
-        let humanScore = 0;
-        let computerScore = 0;
+//         // //b. Create a scoreboard for player and computer.
+//         // let humanScore = 0;
+//         // let computerScore = 0;
        
-        let scoreBoard = `SCOREBOARD = YOU: ${humanScore} | COMPUTER: ${computerScore}`;
+//         // let scoreBoard = `SCOREBOARD = YOU: ${humanScore} | COMPUTER: ${computerScore}`;
         
-//         b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
-//                 - if function returns WIN, +1 to the PLAYER.
-        if (playRound(playerSelection, computerSelection) === 'WIN') {
-                // ++humanScore;
-                console.log(`You WIN! ${playerSelection} beats ${computerSelection}.`);
-                // - if function returns LOSE, +1 to the COMPUTER.
-        } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
-                console.log(`You LOSE! ${computerSelection} beats ${playerSelection}.`);
-                // - if function returns TIE, do nothing.
-        } else {
-                console.log('not working');
-                // console.log(scoreBoard);
-                // console.log(scoreBoard);
-                // console.log('NOT WORKING');
-        }
+// //         b. For every round, winner and loser will be displayed, and accumulated scores will be shown.
+// //                 - if function returns WIN, +1 to the PLAYER.
+//         if (playRound(playerSelection, computerSelection) === 'WIN') {
+//                 // ++humanScore;
+//                 console.log(`You WIN! ${playerSelection} beats ${computerSelection}.`);
+//                 // - if function returns LOSE, +1 to the COMPUTER.
+//         } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
+//                 console.log(`You LOSE! ${computerSelection} beats ${playerSelection}.`);
+//                 // - if function returns TIE, do nothing.
+//         } else {
+//                 console.log('not working');
+//                 // console.log(scoreBoard);
+//                 // console.log(scoreBoard);
+//                 // console.log('NOT WORKING');
+//         }
 
-}
+// }
         
         //c. Repeat playRound() five times.
 
-game();
+// game();
 //5. First player to score 3 wins the GAME.
+
+
+function game() {
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        let i = 1;
+
+        for (; i <=5; i++) {
+            if (playRound(playerSelection, computerSelection) === 'WIN') {
+                console.log(`GAME ${i}: You WIN! ${playerSelection} beats ${computerSelection}.`);
+                return ++humanScore;
+            } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
+                console.log(`Game ${i}: You LOSE! ${computerSelection} beats ${playerSelection}.`);
+                return ++computerScore;
+            } else {
+                console.log('not working');
+            }
+        }   
+
+        console.log(`SCOREBOARD: YOU: ${humanScore} | COMPUTER: ${computerScore}`)
+}
+
+game();
+
+
 
               
