@@ -67,51 +67,51 @@ function playRound (humanPick, cpuPick) {
                 switch (cpuPick) {
                         // a. If Player = Paper, CPU = Rock; You WIN
                         case ("ROCK"):
-                        console.log("Tie game! You both choose ROCK");
+                        // console.log("Tie game! You both choose ROCK");
                         return "TIE";
 
                         // b. If Player = Rock, CPU = Paper; You Lose
                         case ("PAPER"):
-                        console.log("You LOSE! Computer chose PAPER. Paper beats Rock!");
+                        // console.log("You LOSE! Computer chose PAPER. Paper beats Rock!");
                         return "LOSE";
 
                          // c. If Player = Rock, CPU = Scissor, You WiN
                         case ("SCISSORS"):
-                        console.log("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
+                        // console.log("You WIN! Computer chose SCISSORS. Rock beats Scissors!");
                         return "WIN";
                 }
         } else if (humanPick == "PAPER") {
                 switch (cpuPick) {
                         // a. If Player = Paper, CPU = Rock; You WIN
                         case ("ROCK"):
-                        console.log("You WIN! Computer chose ROCK. Paper beats Rock!");
+                        // console.log("You WIN! Computer chose ROCK. Paper beats Rock!");
                         return "WIN";
 
                         // b. If Player = Paper, CPU = Paper; TIE
                         case ("PAPER"):
-                        console.log("Tie game! You both choose PAPER");
+                        // console.log("Tie game! You both choose PAPER");
                         return "TIE";
 
                         // c. If Player = Paper, CPU = Scissor; You LOSE
                         case ("SCISSORS"):
-                        console.log("You LOSE! Computer chose SCISSORS. Scissors beat Paper!");
+                        // console.log("You LOSE! Computer chose SCISSORS. Scissors beat Paper!");
                         return "LOSE";
                 }
         } else if (humanPick == "SCISSORS") {
                 switch (cpuPick) {
                         // a. If Player = Scissor, CPU = Rock; You Lose
                         case ("ROCK"):
-                        console.log("You LOSE! Computer chose ROCK. Rock beats Scissors!");
+                        // console.log("You LOSE! Computer chose ROCK. Rock beats Scissors!");
                         return "LOSE";
 
                         // b. If Player = Scissor, CPU = Paper; You Win
                         case ("PAPER"):
-                        console.log("You WIN! Computer chose Paper. Scissors beat Paper!");
+                        // console.log("You WIN! Computer chose Paper. Scissors beat Paper!");
                         return "WIN";
 
                         // c. If Player = Scissor, CPU = Scissor; TIE
                         case ("SCISSORS"):
-                        console.log("Tie game! You both choose PAPER");
+                        // console.log("Tie game! You both choose PAPER");
                         return "TIE";
                 }
         }
@@ -135,11 +135,10 @@ function game() {
 //                 - if function returns WIN, +1 to the PLAYER.
         if (playRound(playerSelection, computerSelection) === 'WIN') {
                 // ++humanScore;
-                console.log(`SCOREBOARD = YOU: ${++humanScore} | COMPUTER: ${computerScore}`)
+                console.log(`You WIN! ${playerSelection} beats ${computerSelection}.`);
                 // - if function returns LOSE, +1 to the COMPUTER.
         } else if (playRound(playerSelection, computerSelection) === 'LOSE') {
-                ++computerScore;
-                console.log('talo padi');
+                console.log(`You LOSE! ${computerSelection} beats ${playerSelection}.`);
                 // - if function returns TIE, do nothing.
         } else {
                 console.log('not working');
