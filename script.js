@@ -77,8 +77,15 @@ function game() {
 
     //Ask the player his/her weapon of choice (rock paper scissors)
     const playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase(); 
+
+    if (playerSelection === null) {
+        alert('YOU HAVE CANCELED THE GAME.')
+    }
+
     console.log(`You selected: ${playerSelection}`);
     //Make sure that player's choice (spelling/word choice) is correct. Otherwise, make the round invalid.
+
+    
 
 
 
@@ -108,8 +115,9 @@ function game() {
                 console.log('CONGRATULATIONS! YOU WIN THE GAME');
         } else if (i === 5 && humanScore < computerScore) {
                 console.log('YOU LOSE. PLEASE TRY AGAIN.')
+        } else if (i === 5 && humanScore === computerScore) {
+                console.log('GAME RESULTED TO DRAW. RELOAD TO REMATCH')
         }
-
     }
 }
 
