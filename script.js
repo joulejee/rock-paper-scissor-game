@@ -76,18 +76,24 @@ function game() {
     console.log(`Computer selected: ${computerSelection}`);
 
     //Ask the player his/her weapon of choice (rock paper scissors)
-    const playerSelection = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?").toUpperCase(); 
+    const playerInput = prompt("Please choose your weapon:\nROCK, PAPER, or SCISSORS?"); 
+        if (playerInput === null || playerInput === undefined) {
+                alert('Match canceled. Please reload the game.')
+                break;
+        } else if (playerInput === '') {
+                alert(`Option can't be blank. Please reload the game.`);
+                break;
+        }
 
-    if (playerSelection === null) {
-        alert('YOU HAVE CANCELED THE GAME.')
-    }
+    const playerSelection = playerInput.toUpperCase()
+        if (playerSelection !== 'ROCK' || playerSelection !== 'PAPER' || playerSelection !== 'SCISSORS') {
+                alert(`You picked an invalid item. Please choose between ROCK, PAPER, SCISSORS only.`)
+                playerInput;
+        }
+        
 
     console.log(`You selected: ${playerSelection}`);
     //Make sure that player's choice (spelling/word choice) is correct. Otherwise, make the round invalid.
-
-    
-
-
 
         //Invokation of playRound(),     
     if (playRound(playerSelection, computerSelection) === 'WIN') {
@@ -99,10 +105,10 @@ function game() {
         } else if (playRound(playerSelection, computerSelection) === 'TIE'){
         console.log(`RESULT: TIE GAME. You both chose ${playerSelection}`); //Tie Game. Do Nothing.
         } else {
-        console.log('INVALID INPUT. PLEASE RELOAD THE GAME.')
+        console.log('INVALID INPUT. ROUND INVALID.')
         }
-//
-        console.log(`SCOREBOARD: YOU: ${humanScore} | COMPUTER: ${computerScore}\n `);
+    
+console.log(`SCOREBOARD: YOU: ${humanScore} | COMPUTER: ${computerScore}\n `);
 
         //SCORING CONDITIONALS (WINNER / LOSER)
    if (humanScore === 3) {
