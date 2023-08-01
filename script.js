@@ -86,10 +86,10 @@ function game() {
         }
 
     const playerSelection = playerInput.toUpperCase()
-        if (playerSelection !== 'ROCK' || playerSelection !== 'PAPER' || playerSelection !== 'SCISSORS') {
-                alert(`You picked an invalid item. Please choose between ROCK, PAPER, SCISSORS only.`)
-                playerInput;
-        }
+        // if (playerSelection !== 'ROCK' || playerSelection !== 'PAPER' || playerSelection !== 'SCISSORS') {
+        //         alert(`You picked an invalid item. Please choose between ROCK, PAPER, SCISSORS only.`)
+        //         playerInput;
+        // }
         
 
     console.log(`You selected: ${playerSelection}`);
